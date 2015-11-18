@@ -27,6 +27,21 @@ public abstract class Being {
     protected float growthArmor;
     protected float growthMR;
 
+    //current stats
+    protected int hpMax;
+    protected int hp;
+    protected float regenHp;
+    protected int manaMax;
+    protected int mana;
+    protected float regenMana;
+    protected int ad;
+    protected float as;
+    protected int ap;
+    protected int armor;
+    protected int mr;
+    protected int tenacity;
+
+
 
     public String getName() {
         return name;
@@ -186,5 +201,22 @@ public abstract class Being {
 
     public void setGrowthMR(float growthMR) {
         this.growthMR = growthMR;
+    }
+
+    public void applyLevel(){
+
+        hpMax = (int) (baseHp + level * growthHp);
+        manaMax = (int) (baseMana +level * growthMana);
+        regenHp = baseRegenHp + level * growthRegenHp;
+        regenMana = baseRegenMana + level * growthRegenMana;
+        ad = (int) (baseAD + level * growthAD);
+        as = baseAS + level * growthAS;
+        armor = (int) (baseArmor + level * growthArmor);
+        mr = (int) (baseMR + level * growthMR);
+        hp = hpMax;
+        mana = manaMax;
+        tenacity = 0;
+        ap = 0;
+
     }
 }
