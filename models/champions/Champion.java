@@ -1,10 +1,10 @@
-package models.champions;
+package lolsimulation.models.champions;
 
-import models.Being;
-import models.Buff;
-import models.items.Build;
-import models.masteries.MasteryPage;
-import models.runes.RunePage;
+import lolsimulation.models.Being;
+import lolsimulation.models.Buff;
+import lolsimulation.models.items.Build;
+import lolsimulation.models.masteries.MasteryPage;
+import lolsimulation.models.runes.RunePage;
 
 import java.util.List;
 

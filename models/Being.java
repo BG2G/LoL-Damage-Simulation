@@ -1,4 +1,4 @@
-package models;
+package lolsimulation.models;
 
 public abstract class Being {
 

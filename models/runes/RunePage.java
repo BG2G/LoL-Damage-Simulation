@@ -1,4 +1,4 @@
-package models.runes;
+package lolsimulation.models.runes;
 
 import java.util.LinkedList;
 import java.util.List;

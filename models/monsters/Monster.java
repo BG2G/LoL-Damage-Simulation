@@ -1,6 +1,6 @@
-package models.monsters;
+package lolsimulation.models.monsters;
 
-import models.Being;
+import lolsimulation.models.Being;
 
 public class Monster extends Being {
 

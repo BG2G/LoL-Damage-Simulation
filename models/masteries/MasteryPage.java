@@ -1,4 +1,4 @@
-package models.masteries;
+package lolsimulation.models.masteries;
 
 public class MasteryPage {
 

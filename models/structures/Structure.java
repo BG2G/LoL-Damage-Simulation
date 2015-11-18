@@ -1,6 +1,6 @@
-package models.structures;
+package lolsimulation.models.structures;
 
-import models.Being;
+import lolsimulation.models.Being;
 
 /**
  * Created by League of Engineers on 11/14/2015.

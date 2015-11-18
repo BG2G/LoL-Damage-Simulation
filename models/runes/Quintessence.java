@@ -1,4 +1,4 @@
-package models.runes;
+package lolsimulation.models.runes;
 
 /**
  * Created by League of Engineers on 11/14/2015.

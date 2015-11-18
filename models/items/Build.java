@@ -1,4 +1,4 @@
-package models.items;
+package lolsimulation.models.items;
 
 /**
  * Created by League of Engineers on 11/14/2015.

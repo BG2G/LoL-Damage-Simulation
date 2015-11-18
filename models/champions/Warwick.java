@@ -1,4 +1,4 @@
-package models.champions;
+package lolsimulation.models.champions;
 
 /**
  * Created by amr on 17.11.2015.
