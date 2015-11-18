@@ -23,7 +23,7 @@ public abstract class Being {
     protected float growthMana;
     protected float growthRegenMana;
     protected float growthAD;
-    protected float growthAS;
+    protected float growthAS; //attention cette stat est un pourcentage qui s'applique différement que pour les autres stats
     protected float growthArmor;
     protected float growthMR;
 
@@ -205,14 +205,14 @@ public abstract class Being {
 
     public void applyLevel(){
 
-        hpMax = (int) (baseHp + level * growthHp);
-        manaMax = (int) (baseMana +level * growthMana);
-        regenHp = baseRegenHp + level * growthRegenHp;
-        regenMana = baseRegenMana + level * growthRegenMana;
-        ad = (int) (baseAD + level * growthAD);
-        as = baseAS + level * growthAS;
-        armor = (int) (baseArmor + level * growthArmor);
-        mr = (int) (baseMR + level * growthMR);
+        hpMax = (int) (baseHp + (level-1) * growthHp);
+        manaMax = (int) (baseMana +(level-1) * growthMana);
+        regenHp = baseRegenHp + (level-1) * growthRegenHp;
+        regenMana = baseRegenMana + (level-1) * growthRegenMana;
+        ad = (int) (baseAD + (level-1) * growthAD);
+        as = baseAS + (level-1) * growthAS;
+        armor = (int) (baseArmor + (level-1) * growthArmor);
+        mr = (int) (baseMR + (level-1) * growthMR);
         hp = hpMax;
         mana = manaMax;
         tenacity = 0;
