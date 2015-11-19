@@ -3,7 +3,7 @@ package lolsimulation.models;
 public abstract class Being {
 
     protected String name;
-    protected int level;
+    protected int level = 1;
     //stats de base actuelles
     //stats de niveau 1
     protected float baseHp;
@@ -28,18 +28,18 @@ public abstract class Being {
     protected float growthMR;
 
     //current stats
-    protected int hpMax;
+    protected float hpMax;
     protected int hp;
     protected float regenHp;
-    protected int manaMax;
+    protected float manaMax;
     protected int mana;
     protected float regenMana;
-    protected int ad;
+    protected float ad;
     protected float as;
-    protected int ap;
-    protected int armor;
-    protected int mr;
-    protected int tenacity;
+    protected float ap;
+    protected float armor;
+    protected float mr;
+    protected float tenacity;
 
 
 
@@ -203,20 +203,39 @@ public abstract class Being {
         this.growthMR = growthMR;
     }
 
-    public void applyLevel(){
+    public void applyLevel(int newLevel){
 
-        hpMax = (int) (baseHp + level * growthHp);
-        manaMax = (int) (baseMana +level * growthMana);
-        regenHp = baseRegenHp + level * growthRegenHp;
-        regenMana = baseRegenMana + level * growthRegenMana;
-        ad = (int) (baseAD + level * growthAD);
-        as = baseAS + level * growthAS;
-        armor = (int) (baseArmor + level * growthArmor);
-        mr = (int) (baseMR + level * growthMR);
-        hp = hpMax;
-        mana = manaMax;
+        hpMax =  (baseHp + (newLevel - level) * growthHp);
+        manaMax = (baseMana +(newLevel - level) * growthMana);
+        regenHp = baseRegenHp + (newLevel - level) * growthRegenHp;
+        regenMana = baseRegenMana + (newLevel - level) * growthRegenMana;
+        ad = (baseAD + (newLevel - level) * growthAD);
+        as = baseAS + (newLevel - level) * growthAS;
+        armor = (baseArmor + (newLevel - level) * growthArmor);
+        mr = (baseMR + (newLevel - level) * growthMR);
+        hp = (int) hpMax;
+        mana = (int) manaMax;
         tenacity = 0;
         ap = 0;
+        level = newLevel;
 
+    }
+
+    public String toString(){
+
+        StringBuilder description = new StringBuilder();
+        description.append(name).append(", level ").append(level);
+        description.append("\nHealth : ").append(hp).append(" / ").append(hpMax);
+        description.append("\nMana : ").append(mana).append(" / ").append(manaMax);
+        description.append("\nRegeneration : HP ").append(regenHp).append(", Mana ").append(regenMana);
+        description.append("\nAD : ").append(baseAD).append(" + ").append(ad-baseAD).append(" = ").append(ad);
+        description.append("\nAP : ").append(ap);
+        description.append("\nArmor : ").append(baseArmor).append(" + ").append(armor - baseArmor).append(" = ").append(armor);
+        description.append("\nMagic Resistance : ").append(baseMR).append(" + ").append(mr - baseMR).append(" = ").append(mr);
+        description.append("\nAttack Speed : ").append(baseAS).append(" + ").append(as - baseAS).append(" = ").append(as);
+        description.append("\nTenacity : ").append(tenacity);
+        description.append("\n");
+
+        return description.toString();
     }
 }

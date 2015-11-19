@@ -2,13 +2,14 @@ package lolsimulation.models.champions;
 
 import lolsimulation.models.Being;
 import lolsimulation.models.Buff;
+import lolsimulation.models.Damage;
 import lolsimulation.models.items.Build;
 import lolsimulation.models.masteries.MasteryPage;
 import lolsimulation.models.runes.RunePage;
 
 import java.util.List;
 
-public class Champion extends Being {
+public abstract class Champion extends Being {
 
     //max number of items and other restrictions (gold items etc)
 
@@ -19,12 +20,12 @@ public class Champion extends Being {
     protected List<Buff> buffs;
 
     protected int qLevel;
-    protected int zLevel;
+    protected int wLevel;
     protected int eLevel;
     protected int rLevel;
 
     protected float qCooldown;
-    protected float zCooldown;
+    protected float wCooldown;
     protected float eCooldown;
     protected float rCooldown;
     protected float passiveCooldown;
@@ -71,12 +72,12 @@ public class Champion extends Being {
         this.qLevel = qLevel;
     }
 
-    public int getzLevel() {
-        return zLevel;
+    public int getwLevel() {
+        return wLevel;
     }
 
-    public void setzLevel(int zLevel) {
-        this.zLevel = zLevel;
+    public void setwLevel(int wLevel) {
+        this.wLevel = wLevel;
     }
 
     public int geteLevel() {
@@ -103,13 +104,11 @@ public class Champion extends Being {
         this.qCooldown = qCooldown;
     }
 
-    public float getzCooldown() {
-        return zCooldown;
+    public float getwCooldown() {
+        return wCooldown;
     }
 
-    public void setzCooldown(float zCooldown) {
-        this.zCooldown = zCooldown;
-    }
+    public void setwCooldown(float wCooldown) { this.wCooldown = wCooldown; }
 
     public float geteCooldown() {
         return eCooldown;
@@ -133,5 +132,29 @@ public class Champion extends Being {
 
     public void setPassiveCooldown(float passiveCooldown) {
         this.passiveCooldown = passiveCooldown;
+    }
+
+    public void applyRunes(){
+        //TODO
+    }
+
+    public abstract Damage qSpell(Being target);
+    public abstract Damage wSpell(Being target);
+    public abstract Damage eSpell(Being target);
+    public abstract Damage rSpell(Being target);
+
+    public String toString(){
+
+        StringBuilder description = new StringBuilder(super.toString());
+        description.append("Runes : \n").append(runes.toString());
+        description.append("Masteries : \n").append(masteries.toString());
+        description.append("Build : \n").append(items.toString());
+        description.append("Buffs/Debuffs : \n").append(buffs.toString());
+        description.append("\nQ spell : level ").append(qLevel).append(", cooldown ").append(qCooldown);
+        description.append("\nW spell : level ").append(wLevel).append(", cooldown ").append(wCooldown);
+        description.append("\nE spell : level ").append(eLevel).append(", cooldown ").append(eCooldown);
+        description.append("\nR spell : level ").append(rLevel).append(", cooldown ").append(rCooldown);
+
+        return description.toString();
     }
 }

@@ -1,5 +1,7 @@
 package lolsimulation.models;
 
+import java.util.List;
+
 /**
  * Created by League of Engineers on 11/17/2015.
  */
@@ -14,5 +16,7 @@ public class Damage {
     private int dotPhysicalDamage;
     private int dotMagicalDamage;
     private int dotTrueDamage;
+
+    private List<Buff> debuffs;
 
 }
