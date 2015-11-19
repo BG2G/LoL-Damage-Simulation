@@ -23,7 +23,7 @@ public abstract class Being {
     protected float growthMana;
     protected float growthRegenMana;
     protected float growthAD;
-    protected float growthAS;
+    protected float growthAS; //attention cette stat est un pourcentage qui s'applique différement que pour les autres stats
     protected float growthArmor;
     protected float growthMR;
 
