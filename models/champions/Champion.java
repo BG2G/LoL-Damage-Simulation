@@ -19,6 +19,52 @@ public abstract class Champion extends Being {
     protected MasteryPage masteries;
     protected List<Buff> buffs;
 
+    protected float criticalChance = 0;
+    protected float armorPen = 0;
+    protected float armorReductionPercentage = 0;
+    protected float magicPen = 0;
+    protected float magicReductionPercentage = 0;
+
+    public float getCriticalChance() {
+        return criticalChance;
+    }
+
+    public void setCriticalChance(float criticalChance) {
+        this.criticalChance = criticalChance;
+    }
+
+    public float getArmorPen() {
+        return armorPen;
+    }
+
+    public void setArmorPen(float armorPen) {
+        this.armorPen = armorPen;
+    }
+
+    public float getArmorReductionPercentage() {
+        return armorReductionPercentage;
+    }
+
+    public void setArmorReductionPercentage(float armorReductionPercentage) {
+        this.armorReductionPercentage = armorReductionPercentage;
+    }
+
+    public float getMagicPen() {
+        return magicPen;
+    }
+
+    public void setMagicPen(float magicPen) {
+        this.magicPen = magicPen;
+    }
+
+    public float getMagicReductionPercentage() {
+        return magicReductionPercentage;
+    }
+
+    public void setMagicReductionPercentage(float magicReductionPercentage) {
+        this.magicReductionPercentage = magicReductionPercentage;
+    }
+
     protected int qLevel;
     protected int wLevel;
     protected int eLevel;
@@ -136,6 +182,26 @@ public abstract class Champion extends Being {
 
     public void applyRunes(){
         //TODO
+    }
+
+    public Damage basicAttack(Being target){
+
+        Damage damage = new Damage();
+        float physicalDamage =  this.getAd();
+        if(Math.random() < this.criticalChance){
+            physicalDamage *= 2;
+        }
+        //TODO: buffs, hit effect ...
+
+        float targetArmor = target.getArmor();
+        //TODO : Last whisper
+        targetArmor = targetArmor*(1- this.getArmorReductionPercentage()) - this.getArmorPen();
+        physicalDamage = Damage.applyResistance(physicalDamage, targetArmor);
+        // TODO: special reduction from the Target side, defensive mastery, Braum's e, Alistar's r...
+
+        damage.setPhysicalDamage((int)physicalDamage);
+
+        return damage;
     }
 
     public abstract Damage qSpell(Being target);

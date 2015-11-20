@@ -39,6 +39,16 @@ public abstract class Being {
     protected float ap;
     protected float armor;
     protected float mr;
+    protected float ms;
+
+    public float getMs() {
+        return ms;
+    }
+
+    public void setMs(float ms) {
+        this.ms = ms;
+    }
+
     protected float tenacity;
 
 
@@ -185,6 +195,102 @@ public abstract class Being {
 
     public void setGrowthAS(float growthAS) {
         this.growthAS = growthAS;
+    }
+
+    public float getHpMax() {
+        return hpMax;
+    }
+
+    public void setHpMax(float hpMax) {
+        this.hpMax = hpMax;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public float getRegenHp() {
+        return regenHp;
+    }
+
+    public void setRegenHp(float regenHp) {
+        this.regenHp = regenHp;
+    }
+
+    public float getManaMax() {
+        return manaMax;
+    }
+
+    public void setManaMax(float manaMax) {
+        this.manaMax = manaMax;
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    public float getRegenMana() {
+        return regenMana;
+    }
+
+    public void setRegenMana(float regenMana) {
+        this.regenMana = regenMana;
+    }
+
+    public float getAd() {
+        return ad;
+    }
+
+    public void setAd(float ad) {
+        this.ad = ad;
+    }
+
+    public float getAs() {
+        return as;
+    }
+
+    public void setAs(float as) {
+        this.as = as;
+    }
+
+    public float getAp() {
+        return ap;
+    }
+
+    public void setAp(float ap) {
+        this.ap = ap;
+    }
+
+    public float getArmor() {
+        return armor;
+    }
+
+    public void setArmor(float armor) {
+        this.armor = armor;
+    }
+
+    public float getMr() {
+        return mr;
+    }
+
+    public void setMr(float mr) {
+        this.mr = mr;
+    }
+
+    public float getTenacity() {
+        return tenacity;
+    }
+
+    public void setTenacity(float tenacity) {
+        this.tenacity = tenacity;
     }
 
     public float getGrowthArmor() {
