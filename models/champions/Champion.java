@@ -181,6 +181,21 @@ public abstract class Champion extends Being {
         this.passiveCooldown = passiveCooldown;
     }
 
+    public float getBonusAd(){
+        return this.getAd() - this.getBaseAD();
+    }
+
+    public float getBonusArmor(){
+        return this.getArmor() - this.getBaseArmor();
+    }
+    public  float getBonusMr(){
+        return this.getMr() - this.getBaseMR();
+    }
+    public float getBonusHp(){
+        return this.getHpMax() - this.getBaseHp();
+    }
+
+
     public void applyRunes(){
         //TODO
     }
@@ -200,7 +215,7 @@ public abstract class Champion extends Being {
         physicalDamage = Damage.applyResistance(physicalDamage, targetArmor);
         // TODO: special reduction from the Target side, defensive mastery, Braum's e, Alistar's r...
 
-        damage.setPhysicalDamage((int)physicalDamage);
+        damage.addDamage(Damage.PHYSICAL_DAMAGE, (int)physicalDamage);
 
         return damage;
     }

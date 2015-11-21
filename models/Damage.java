@@ -9,72 +9,94 @@ import java.util.List;
  */
 public class Damage {
 
+    public static final int PHYSICAL_DAMAGE = 1;
+    public static final int MAGICAL_DAMAGE = 2;
+    public static final int TRUE_DAMAGE = 3;
+    public static final int PHYSICAL_DOT = 4;
+    public static final int MAGICAL_DOT = 5;
+    public static final int TRUE_DOT = 6;
+
     private int physicalDamage;
     private int magicalDamage;
     private int trueDamage;
     //For DOT
+    //TODO : split the DOTs (for damage addition)
     private int dotNumber;
     private float dotInterval;
-    private int dotPhysicalDamage;
-    private int dotMagicalDamage;
-    private int dotTrueDamage;
+    private float dotPhysicalDamage;
+    private float dotMagicalDamage;
+    private float dotTrueDamage;
 
     private List<Buff> debuffs;
 
-    public int getPhysicalDamage() {
-        return physicalDamage;
+    public Damage(){}
+
+    public Damage(int damageType, float value){
+        this.addDamage(damageType, value);
     }
 
-    public void setPhysicalDamage(int physicalDamage) {
-        this.physicalDamage = physicalDamage;
+    public void addDamage(Damage otherDmg){
+        this.physicalDamage += otherDmg.physicalDamage;
+        this.magicalDamage += otherDmg.magicalDamage;
+        this.trueDamage += otherDmg.trueDamage;
+    }
+
+    public void addDamage(int damageType, float value){
+        switch (damageType){
+            case PHYSICAL_DAMAGE:
+                this.physicalDamage += value;
+                break;
+            case MAGICAL_DAMAGE:
+                this.magicalDamage += value;
+                break;
+            case TRUE_DAMAGE:
+                this.trueDamage += value;
+                break;
+        }
+    }
+
+    public void setDot(int repetitions, float dotInterval, int damageType, float value){
+        this.dotInterval = dotInterval;
+        this.dotNumber = repetitions;
+        switch (damageType){
+            case PHYSICAL_DOT:
+                this.dotPhysicalDamage = value;
+                break;
+            case MAGICAL_DOT:
+                this.dotMagicalDamage = value;
+                break;
+            case TRUE_DOT:
+                this.dotTrueDamage = value;
+                break;
+        }
+    }
+
+    public int getPhysicalDamage() {
+        return physicalDamage;
     }
 
     public int getMagicalDamage() {
         return magicalDamage;
     }
 
-    public void setMagicalDamage(int magicalDamage) {
-        this.magicalDamage = magicalDamage;
-    }
-
     public int getTrueDamage() {
         return trueDamage;
-    }
-
-    public void setTrueDamage(int trueDamage) {
-        this.trueDamage = trueDamage;
     }
 
     public int getDotNumber() {
         return dotNumber;
     }
 
-    public void setDotNumber(int dotNumber) {
-        this.dotNumber = dotNumber;
-    }
-
     public float getDotInterval() {
         return dotInterval;
     }
 
-    public void setDotInterval(float dotInterval) {
-        this.dotInterval = dotInterval;
-    }
-
-    public int getDotPhysicalDamage() {
+    public float getDotPhysicalDamage() {
         return dotPhysicalDamage;
     }
 
-    public void setDotPhysicalDamage(int dotPhysicalDamage) {
-        this.dotPhysicalDamage = dotPhysicalDamage;
-    }
-
-    public int getDotMagicalDamage() {
+    public float getDotMagicalDamage() {
         return dotMagicalDamage;
-    }
-
-    public void setDotMagicalDamage(int dotMagicalDamage) {
-        this.dotMagicalDamage = dotMagicalDamage;
     }
 
     public List<Buff> getDebuffs() {
@@ -85,17 +107,14 @@ public class Damage {
         this.debuffs = debuffs;
     }
 
-    public int getDotTrueDamage() {
-
+    public float getDotTrueDamage() {
         return dotTrueDamage;
     }
 
-    public void setDotTrueDamage(int dotTrueDamage) {
-        this.dotTrueDamage = dotTrueDamage;
-    }
 
     public static float applyResistance(float trueDamage, float resistance){
         return trueDamage*(100/(100 + resistance));
     }
+
 
 }
