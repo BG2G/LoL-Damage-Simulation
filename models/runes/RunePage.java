@@ -48,13 +48,13 @@ public class RunePage {
 					valide = true;
 				}
 				break;
-			case "Glyphe":
+			case "Glyph":
 				if(compteur<MAX_GLYPHE) {
 					runes.add(newRune);
 					valide = true;
 				}
 				break;
-			case "Sceal":
+			case "Seal":
 				if(compteur<MAX_SCEAL) {
 					runes.add(newRune);
 					valide = true;

@@ -26,7 +26,7 @@ public abstract class Rune {
 
 
 
-    protected String couleur; //Sceal, Glyphe, Mark, Quint
+    protected String couleur; //Seal, Glyph, Mark, Quint
     protected int stat; //AD, AP, ARMOR...
     protected int typeBonus; //FLAT, PERC, SCAL
     protected int value; //valeur de ce bonus

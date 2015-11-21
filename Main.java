@@ -3,16 +3,15 @@
  */
 package lolsimulation;
 
-import lolsimulation.models.runes.Glyphe;
+import lolsimulation.models.runes.Glyph;
 import lolsimulation.models.runes.Mark;
-import lolsimulation.models.runes.Rune;
 import lolsimulation.models.runes.RunePage;
 
 public class Main {
 
     public static void main(String[] args){
         System.out.println("haha");
-        Glyphe a = new Glyphe(1,2,3);
+        Glyph a = new Glyph(1,2,3);
         Mark b = new Mark(5,1,4);
         Mark c = new Mark(0,0,7);
         //System.out.println(a.toString());

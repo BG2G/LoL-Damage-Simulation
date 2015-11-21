@@ -1,5 +1,7 @@
 package lolsimulation.models;
 
+import lolsimulation.models.buffs.Buff;
+
 import java.util.List;
 
 /**

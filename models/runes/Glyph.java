@@ -3,20 +3,20 @@ package lolsimulation.models.runes;
 /**
  * Created by League of Engineers on 11/14/2015.
  */
-public class Glyphe extends Rune {
-    public Glyphe() {
-        this.couleur = "Glyphe";
+public class Glyph extends Rune {
+    public Glyph() {
+        this.couleur = "Glyph";
 
     }
-    public Glyphe(int stat, int bonusType, int value) {
-        this.couleur = "Glyphe";
+    public Glyph(int stat, int bonusType, int value) {
+        this.couleur = "Glyph";
         this.stat = stat;
         this.typeBonus = bonusType;
         this.value = value;
 
     }
     public String toString(){
-        String details = "Glyphe";
+        String details = "Glyph";
         details = details + "; +";
         details = details + this.value + " ";
         switch(this.typeBonus){

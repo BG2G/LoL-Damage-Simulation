@@ -1,8 +1,9 @@
 package lolsimulation.models.champions;
 
 import lolsimulation.models.Being;
-import lolsimulation.models.Buff;
+import lolsimulation.models.buffs.Buff;
 import lolsimulation.models.Damage;
+import lolsimulation.models.buffs.Buffs;
 import lolsimulation.models.items.Build;
 import lolsimulation.models.masteries.MasteryPage;
 import lolsimulation.models.runes.RunePage;
@@ -17,7 +18,7 @@ public abstract class Champion extends Being {
     protected Build items;
     protected RunePage runes;
     protected MasteryPage masteries;
-    protected List<Buff> buffs;
+    protected Buffs buffs;
 
     protected float criticalChance = 0;
     protected float armorPen = 0;
@@ -102,11 +103,11 @@ public abstract class Champion extends Being {
         this.masteries = masteries;
     }
 
-    public List<Buff> getBuffs() {
+    public Buffs getBuffs() {
         return buffs;
     }
 
-    public void setBuffs(List<Buff> buffs) {
+    public void setBuffs(Buffs buffs) {
         this.buffs = buffs;
     }
 
