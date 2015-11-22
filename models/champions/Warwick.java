@@ -14,7 +14,7 @@ public class Warwick extends Champion {
         //set base stats (niveau 1 sans bonus)
         this.baseAD = 62.43f;
         this.baseArmor = 25.88f;
-        this.baseAS = 0.679f;
+        this.as = 0.679f;
         this.baseHp = 592.64f;
         this.baseMana = 240.4f;
         this.baseMR = 32.1f;
