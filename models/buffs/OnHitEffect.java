@@ -4,8 +4,7 @@ import lolsimulation.models.Damage;
 import lolsimulation.models.DamageScaling;
 import lolsimulation.models.champions.Champion;
 
-import java.security.DomainCombiner;
-import java.util.HashMap;
+
 import java.util.List;
 
 /**
