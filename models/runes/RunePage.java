@@ -14,7 +14,7 @@ public class RunePage {
 	public static final int MAX_QUINT = 3;
 
 
-	private List<Rune> runes;
+	protected List<Rune> runes;
 
 	//constructeur
 	public RunePage(){
@@ -104,5 +104,27 @@ public class RunePage {
 		return  valide;
 	}
 
+	public static int getMaxMark() {
+		return MAX_MARK;
+	}
 
+	public List<Rune> getRunes() {
+		return runes;
+	}
+
+	public void setRunes(List<Rune> runes) {
+		this.runes = runes;
+	}
+
+	public static int getMaxQuint() {
+		return MAX_QUINT;
+	}
+
+	public static int getMaxSceal() {
+		return MAX_SCEAL;
+	}
+
+	public static int getMaxGlyphe() {
+		return MAX_GLYPHE;
+	}
 }

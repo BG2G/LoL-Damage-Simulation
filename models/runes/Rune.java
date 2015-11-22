@@ -16,6 +16,9 @@ public abstract class Rune {
     public static final int CDR = 7;
     public static final int HP = 8;
     public static final int CRIT = 9;
+    public static final int SPELLVAMP = 10;
+    public static final int LIFESTEAL = 11;
+    public static final int CRITRATIO = 12;
     //et ainsi de suite, selon les besoins
 
 
@@ -103,6 +106,15 @@ public abstract class Rune {
                     case CRIT:
                         details = details+" Crit. Chance";
                         break;
+                    case SPELLVAMP:
+                        details = details+" Spell Vamp";
+                        break;
+                    case LIFESTEAL:
+                        details = details+" LifeSteal";
+                        break;
+                    case CRITRATIO:
+                        details = details+" Crit Damage";
+
 
                 }
                 break;
@@ -139,6 +151,14 @@ public abstract class Rune {
                     case CRIT:
                         details = details+" Crit. Chance";
                         break;
+                    case SPELLVAMP:
+                        details = details+" Spell Vamp";
+                        break;
+                    case LIFESTEAL:
+                        details = details+" LifeSteal";
+                        break;
+                    case CRITRATIO:
+                        details = details+" Crit Damage";
 
                 }
                 break;
@@ -174,6 +194,14 @@ public abstract class Rune {
                     case CRIT:
                         details = details+" Crit. Chance";
                         break;
+                    case SPELLVAMP:
+                        details = details+" Spell Vamp";
+                        break;
+                    case LIFESTEAL:
+                        details = details+" LifeSteal";
+                        break;
+                    case CRITRATIO:
+                        details = details+" Crit Damage";
 
                 }
                 details = details+"/lvl";
