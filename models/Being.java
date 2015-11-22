@@ -327,6 +327,19 @@ public abstract class Being {
 
     }
 
+    public boolean receiveDamage(Damage damage){
+        // TODO: special reduction from the Target side, defensive mastery, Braum's e, Alistar's r..., (shields)
+
+        hp = hp - damage.getTotalDamage();
+
+        if(hp <=0){
+            hp =0;
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     public String toString(){
 
         StringBuilder description = new StringBuilder();

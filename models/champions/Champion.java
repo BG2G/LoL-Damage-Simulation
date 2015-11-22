@@ -363,7 +363,6 @@ public abstract class Champion extends Being {
         //TODO : Last whisper
         targetArmor = targetArmor*(1- this.getArmorReductionPercentage()) - this.getArmorPen();
         physicalDamage = Damage.applyResistance(physicalDamage, targetArmor);
-        // TODO: special reduction from the Target side, defensive mastery, Braum's e, Alistar's r...
 
         damage.addDamage(Damage.PHYSICAL_DAMAGE, (int)physicalDamage);
 

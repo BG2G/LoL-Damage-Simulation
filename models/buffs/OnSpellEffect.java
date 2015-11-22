@@ -5,36 +5,33 @@ import lolsimulation.models.DamageScaling;
 import lolsimulation.models.Dot;
 import lolsimulation.models.champions.Champion;
 
-
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by League of Engineers on 11/21/2015.
+ * Created by League of Engineers on 11/22/2015.
  */
-public class OnHitEffect extends Buff{
+public class OnSpellEffect extends Buff {
 
     private int damageType;
     private DamageScaling scaling;
     private List<Buff> debuffs;
     private List<Dot> dots;
 
-    public OnHitEffect(int damageType, DamageScaling dmgScaling, List<Buff> debuffs, List<Dot> dots){
+    public OnSpellEffect(int damageType, DamageScaling dmgScaling, List<Buff> debuffs, List<Dot> dots){
         this.damageType = damageType;
         this.scaling = dmgScaling;
         this.debuffs = debuffs;
         this.dots = dots;
     }
-
-    public OnHitEffect(int damageType, DamageScaling scaling, List<Buff> debuffs){
-        new OnHitEffect(damageType, scaling, debuffs, new LinkedList<>());
+    public OnSpellEffect(int damageType, DamageScaling dmgScaling, List<Buff> buffs){
+        new OnSpellEffect(damageType, dmgScaling, buffs, new LinkedList<>());
+    }
+    public OnSpellEffect(int damageType, DamageScaling dmgScaling){
+        new OnSpellEffect(damageType, dmgScaling, new LinkedList<>(), new LinkedList<>());
     }
 
-    public OnHitEffect(int damageType, DamageScaling dmgScaling){
-        new OnHitEffect(damageType, dmgScaling, new LinkedList<>(), new LinkedList<>());
-    }
-
-    public Damage getOnHitEffectDamage(Champion source){
+    public Damage getOnSpellEffectDamage(Champion source){
         Damage damage = scaling.getDamage(source, damageType);
         damage.setDebuffs(debuffs);
         damage.addDots(dots);
