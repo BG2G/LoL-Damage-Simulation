@@ -311,14 +311,14 @@ public abstract class Being {
 
     public void applyLevel(int newLevel){
 
-        hpMax =  (baseHp + (newLevel - level) * growthHp);
-        manaMax = (baseMana +(newLevel - level) * growthMana);
-        regenHp = baseRegenHp + (newLevel - level) * growthRegenHp;
-        regenMana = baseRegenMana + (newLevel - level) * growthRegenMana;
-        ad = (baseAD + (newLevel - level) * growthAD);
-        as = baseAS + (newLevel - level) * growthAS;
-        armor = (baseArmor + (newLevel - level) * growthArmor);
-        mr = (baseMR + (newLevel - level) * growthMR);
+        baseHp =  (baseHp + (newLevel - level) * growthHp);
+        baseMana = (baseMana +(newLevel - level) * growthMana);
+        baseRegenHp = baseRegenHp + (newLevel - level) * growthRegenHp;
+        baseRegenMana = baseRegenMana + (newLevel - level) * growthRegenMana;
+        baseAD = (baseAD + (newLevel - level) * growthAD);
+        as = as + (newLevel - level) * growthAS;
+        baseArmor = (baseArmor + (newLevel - level) * growthArmor);
+        baseMR = (baseMR + (newLevel - level) * growthMR);
         hp = (int) hpMax;
         mana = (int) manaMax;
         tenacity = 0;
