@@ -21,6 +21,46 @@ public class RunePage {
 		runes = new LinkedList<Rune>();
 	}
 
+	public String toString(){
+
+		String runePage = "";
+		String glyphs = "";
+		String marks = "";
+		String seals = "";
+		String quints = "";
+		Rune currentRune;
+		String currentRuneText;
+
+
+		ListIterator<Rune> listeRunes = runes.listIterator();
+		while(listeRunes.hasNext()) {
+			currentRune = listeRunes.next();
+			currentRuneText = currentRune.toString()+"-";
+			switch(currentRune.getCouleur()){
+				case "Mark":
+					marks += currentRuneText;
+					break;
+				case "Glyph":
+					glyphs += currentRuneText;
+					break;
+				case "Seal":
+					seals += currentRuneText;
+					break;
+				case "Quint":
+					quints += currentRuneText;
+					break;
+
+			}
+
+
+
+		}
+		runePage += "Marks :"+marks+"\n";
+		runePage += "Seals :"+seals+"\n";
+		runePage += "Glyphs :"+glyphs+"\n";
+		runePage += "Quints :"+quints+"\n";
+		return runePage;
+	}
 
 	//méthode pour tenter d'ajouter une rune
 	public boolean addRune(Rune newRune){
@@ -65,5 +105,4 @@ public class RunePage {
 	}
 
 
-	
 }
