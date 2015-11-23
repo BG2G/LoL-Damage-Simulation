@@ -56,6 +56,14 @@ public class Seal extends Rune {
                     case CRIT:
                         details = details+" Crit. Chance";
                         break;
+                    case SPELLVAMP:
+                        details = details+" Spell Vamp";
+                        break;
+                    case LIFESTEAL:
+                        details = details+" LifeSteal";
+                        break;
+                    case CRITRATIO:
+                        details = details+" Crit Damage";
 
                 }
                 break;
@@ -92,6 +100,14 @@ public class Seal extends Rune {
                     case CRIT:
                         details = details+" Crit. Chance";
                         break;
+                    case SPELLVAMP:
+                        details = details+" Spell Vamp";
+                        break;
+                    case LIFESTEAL:
+                        details = details+" LifeSteal";
+                        break;
+                    case CRITRATIO:
+                        details = details+" Crit Damage";
 
                 }
                 break;
@@ -127,6 +143,14 @@ public class Seal extends Rune {
                     case CRIT:
                         details = details+" Crit. Chance";
                         break;
+                    case SPELLVAMP:
+                        details = details+" Spell Vamp";
+                        break;
+                    case LIFESTEAL:
+                        details = details+" LifeSteal";
+                        break;
+                    case CRITRATIO:
+                        details = details+" Crit Damage";
 
                 }
                 details = details+"/lvl";

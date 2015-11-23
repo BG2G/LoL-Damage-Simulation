@@ -6,9 +6,11 @@ import lolsimulation.models.Damage;
 import lolsimulation.models.buffs.Buffs;
 import lolsimulation.models.items.Build;
 import lolsimulation.models.masteries.MasteryPage;
+import lolsimulation.models.runes.Rune;
 import lolsimulation.models.runes.RunePage;
 
 import java.util.List;
+import java.util.ListIterator;
 
 public abstract class Champion extends Being {
 
@@ -25,6 +27,10 @@ public abstract class Champion extends Being {
     protected float armorReductionPercentage = 0;
     protected float magicPen = 0;
     protected float magicReductionPercentage = 0;
+    protected float spellVamp = 0;
+    protected float lifeSteal = 0;
+    protected float critRatio = 2;
+    protected float cdr = 0;
 
     public float getCriticalChance() {
         return criticalChance;
@@ -197,7 +203,151 @@ public abstract class Champion extends Being {
 
 
     public void applyRunes(){
-        //TODO
+        ListIterator<Rune> listeRunes = this.runes.getRunes().listIterator();
+        Rune rune;
+        int stat; //AD, AP, ARMOR...
+        int typeBonus; //FLAT, PERC, SCAL
+        int value; //valeur de ce bonus
+        while(listeRunes.hasNext()) {
+            rune = listeRunes.next();
+            stat = rune.getStat();
+            typeBonus = rune.getTypeBonus();
+            value = rune.getValue();
+
+            switch(typeBonus){
+                case Rune.FLAT:
+                    switch(stat){
+                        case Rune.AD:
+                            ad = ad + value;
+                            break;
+                        case Rune.AP:
+                            ap = ap + value;
+                            break;
+                        case Rune.ARMOR:
+                            armor = armor + value;
+                            break;
+                        case Rune.MR:
+                            mr = mr + value;
+                            break;
+                        case Rune.ARM_PEN:
+                            armorPen = armorPen + value;
+                            break;
+                        case Rune.MAG_PEN:
+                            magicPen = magicPen + value;
+                            break;
+                        case Rune.MS:
+                            ms = ms + value;
+                            break;
+                        case Rune.CDR:
+                            cdr = cdr + value; //en pourcents
+                            break;
+                        case Rune.HP:
+                            hpMax = hpMax + value;
+                            break;
+                        case Rune.CRIT:
+                            criticalChance = criticalChance + value;
+                            break;
+                        case Rune.SPELLVAMP:
+                            spellVamp = spellVamp + value;
+                            break;
+                        case Rune.LIFESTEAL:
+                            lifeSteal = lifeSteal + value;
+                            break;
+                        case Rune.CRITRATIO:
+                            critRatio= critRatio + value;
+                            break;
+                    }
+
+                    break;
+                case Rune.PERC:
+                    switch(stat){
+                        case Rune.AD:
+                            ad = ad + baseAD*value/100f;
+                            break;
+                        case Rune.ARMOR:
+                            armor = armor + baseArmor*value/100f;
+                            break;
+                        case Rune.MR:
+                            mr = mr + baseMR*value/100f;
+                            break;
+                        case Rune.ARM_PEN:
+                            armorReductionPercentage = armorReductionPercentage + value;
+                            break;
+                        case Rune.MAG_PEN:
+                            magicReductionPercentage = magicReductionPercentage + value;
+                            break;
+                        case Rune.MS:
+                            ms = ms + baseMS*value/100f;
+                            break;
+                        case Rune.CDR:
+                            cdr = cdr + value; //en pourcents
+                            break;
+                        case Rune.HP:
+                            hpMax = hpMax + baseHp*value/100f;
+                            break;
+                        case Rune.CRIT:
+                            criticalChance = criticalChance + value;
+                            break;
+                        case Rune.SPELLVAMP:
+                            spellVamp = spellVamp + value;
+                            break;
+                        case Rune.LIFESTEAL:
+                            lifeSteal = lifeSteal + value;
+                            break;
+                        case Rune.CRITRATIO:
+                            critRatio= critRatio + value;
+                            break;
+                    }
+
+
+
+                    break;
+                case Rune.SCAL:
+                    switch(stat){
+                        case Rune.AD:
+                            ad = ad + value*level;
+                            break;
+                        case Rune.AP:
+                            ap = ap + value*level;
+                            break;
+                        case Rune.ARMOR:
+                            armor = armor + value*level;
+                            break;
+                        case Rune.MR:
+                            mr = mr + value*level;
+                            break;
+                        case Rune.ARM_PEN:
+                            armorPen = armorPen + value*level;
+                            break;
+                        case Rune.MAG_PEN:
+                            magicPen = magicPen + value*level;
+                            break;
+                        case Rune.MS:
+                            ms = ms + value*level;
+                            break;
+                        case Rune.CDR:
+                            cdr = cdr + value*level; //en pourcents
+                            break;
+                        case Rune.HP:
+                            hpMax = hpMax + value*level;
+                            break;
+                        case Rune.CRIT:
+                            criticalChance = criticalChance + value*level;
+                            break;
+                        case Rune.SPELLVAMP:
+                            spellVamp = spellVamp + value*level;
+                            break;
+                        case Rune.LIFESTEAL:
+                            lifeSteal = lifeSteal + value*level;
+                            break;
+                        case Rune.CRITRATIO:
+                            critRatio= critRatio + value*level;
+                            break;
+                    }
+
+                    break;
+            }
+        }
     }
 
     public Damage basicAttack(Being target){
@@ -213,7 +363,6 @@ public abstract class Champion extends Being {
         //TODO : Last whisper
         targetArmor = targetArmor*(1- this.getArmorReductionPercentage()) - this.getArmorPen();
         physicalDamage = Damage.applyResistance(physicalDamage, targetArmor);
-        // TODO: special reduction from the Target side, defensive mastery, Braum's e, Alistar's r...
 
         damage.addDamage(Damage.PHYSICAL_DAMAGE, (int)physicalDamage);
 

@@ -27,8 +27,6 @@ public class DamageScaling {
     public static final int HP_MAX = 11;
 
 
-
-
     public DamageScaling(){
     }
 

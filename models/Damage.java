@@ -2,6 +2,7 @@ package lolsimulation.models;
 
 import lolsimulation.models.buffs.Buff;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -19,15 +20,9 @@ public class Damage {
     private int physicalDamage;
     private int magicalDamage;
     private int trueDamage;
-    //For DOT
-    //TODO : split the DOTs (for damage addition)
-    private int dotNumber;
-    private float dotInterval;
-    private float dotPhysicalDamage;
-    private float dotMagicalDamage;
-    private float dotTrueDamage;
 
-    private List<Buff> debuffs;
+    private List<Dot> dots = new LinkedList<>();
+    private List<Buff> debuffs = new LinkedList<>();
 
     public Damage(){}
 
@@ -55,20 +50,15 @@ public class Damage {
         }
     }
 
-    public void setDot(int repetitions, float dotInterval, int damageType, float value){
-        this.dotInterval = dotInterval;
-        this.dotNumber = repetitions;
-        switch (damageType){
-            case PHYSICAL_DOT:
-                this.dotPhysicalDamage = value;
-                break;
-            case MAGICAL_DOT:
-                this.dotMagicalDamage = value;
-                break;
-            case TRUE_DOT:
-                this.dotTrueDamage = value;
-                break;
-        }
+    public void setDot(String name, int repetitions, float dotInterval, int damageType, float value){
+
+        Dot dot = new Dot(name, repetitions, dotInterval, damageType, value);
+        dots.add(dot);
+
+    }
+
+    public int getTotalDamage(){
+        return this.physicalDamage + this.magicalDamage + this.trueDamage;
     }
 
     public int getPhysicalDamage() {
@@ -83,34 +73,25 @@ public class Damage {
         return trueDamage;
     }
 
-    public int getDotNumber() {
-        return dotNumber;
+    public void setDebuffs(List<Buff> debuffs) {
+        this.debuffs = debuffs;
     }
 
-    public float getDotInterval() {
-        return dotInterval;
+    public List<Dot> getDots() {
+        return dots;
     }
 
-    public float getDotPhysicalDamage() {
-        return dotPhysicalDamage;
+    public void addDot(Dot newDot){
+        dots.add(newDot);
     }
 
-    public float getDotMagicalDamage() {
-        return dotMagicalDamage;
+    public void addDots(List<Dot> dotsToAdd){
+        dots.addAll(dotsToAdd);
     }
 
     public List<Buff> getDebuffs() {
         return debuffs;
     }
-
-    public void setDebuffs(List<Buff> debuffs) {
-        this.debuffs = debuffs;
-    }
-
-    public float getDotTrueDamage() {
-        return dotTrueDamage;
-    }
-
 
     public static float applyResistance(float trueDamage, float resistance){
         return trueDamage*(100/(100 + resistance));
