@@ -38,6 +38,26 @@ public class RunePage {
 	public static final int G_SCAL_CDR = 121;
 
 	//numéro des marques
+	public static final int M_AD = 200;
+	public static final int M_SCAL_MANA = 201;
+	public static final int M_MANA = 202;
+	public static final int M_SCAL_AP = 203;
+	public static final int M_AP = 204;
+	public static final int M_MANA_REG = 205;
+	public static final int M_MAGIC_PEN = 206;
+	public static final int M_CDR = 207;
+	public static final int M_SCAL_MR = 208;
+	public static final int M_CRIT_CHANCE = 209;
+	public static final int M_CRIT_DMG = 210;
+	public static final int M_AS = 211;
+	public static final int M_SCAL_AD = 212;
+	public static final int M_ARMOR_PEN = 213;
+	public static final int M_HP = 214;
+	public static final int M_MR = 215;
+	public static final int M_ARMOR = 216;
+	public static final int M_SCAL_HP = 217;
+	public static final int M_HYBRID = 218;
+
 	//numéro des sceaux
 	//numéro des quints
 
