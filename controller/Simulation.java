@@ -2,6 +2,7 @@ package lolsimulation.controller;
 
 import lolsimulation.models.Being;
 import lolsimulation.models.ChampionPool;
+import lolsimulation.models.RuneShop;
 import lolsimulation.models.Shop;
 
 /**
@@ -13,6 +14,7 @@ public class Simulation {
 
     private Shop shop;
     private ChampionPool championPool;
+    private RuneShop runeShop;
     private Being attacker;
     private Being target;
     private float time;
@@ -20,6 +22,7 @@ public class Simulation {
     private Simulation(){
         shop = Shop.getShop();
         championPool = ChampionPool.getChampionPool();
+        runeShop = RuneShop.getRuneShop();
         time = 0;
 
     }
