@@ -27,11 +27,11 @@ public class OnHitEffect extends Buff{
     }
 
     public OnHitEffect(int damageType, DamageScaling scaling, List<Buff> debuffs){
-        new OnHitEffect(damageType, scaling, debuffs, new LinkedList<>());
+        new OnHitEffect(damageType, scaling, debuffs, new LinkedList<Dot>());
     }
 
     public OnHitEffect(int damageType, DamageScaling dmgScaling){
-        new OnHitEffect(damageType, dmgScaling, new LinkedList<>(), new LinkedList<>());
+        new OnHitEffect(damageType, dmgScaling, new LinkedList<Buff>(), new LinkedList<Dot>());
     }
 
     public Damage getOnHitEffectDamage(Champion source){

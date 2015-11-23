@@ -25,10 +25,10 @@ public class OnSpellEffect extends Buff {
         this.dots = dots;
     }
     public OnSpellEffect(int damageType, DamageScaling dmgScaling, List<Buff> buffs){
-        new OnSpellEffect(damageType, dmgScaling, buffs, new LinkedList<>());
+        new OnSpellEffect(damageType, dmgScaling, buffs, new LinkedList<Dot>());
     }
     public OnSpellEffect(int damageType, DamageScaling dmgScaling){
-        new OnSpellEffect(damageType, dmgScaling, new LinkedList<>(), new LinkedList<>());
+        new OnSpellEffect(damageType, dmgScaling, new LinkedList<Buff>(), new LinkedList<Dot>());
     }
 
     public Damage getOnSpellEffectDamage(Champion source){
