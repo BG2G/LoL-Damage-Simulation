@@ -8,7 +8,7 @@ public class Quintessence extends Rune {
         this.couleur = "Quint";
 
     }
-    public Quintessence(int stat, int bonusType, int value) {
+    public Quintessence(int stat, int bonusType, float value) {
         this.couleur = "Quint";
         this.stat = stat;
         this.typeBonus = bonusType;

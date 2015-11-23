@@ -8,7 +8,7 @@ public class Mark extends Rune {
         this.couleur = "Mark";
 
     }
-    public Mark(int stat, int bonusType, int value) {
+    public Mark(int stat, int bonusType, float value) {
         this.couleur = "Mark";
         this.stat = stat;
         this.typeBonus = bonusType;

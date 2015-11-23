@@ -19,6 +19,11 @@ public abstract class Rune {
     public static final int SPELLVAMP = 10;
     public static final int LIFESTEAL = 11;
     public static final int CRITRATIO = 12;
+    public static final int ENERGY = 13;
+    public static final int ENERGY_REG = 14;
+    public static final int MANA = 15;
+    public static final int MANA_REG = 16;
+    public static final int AS = 17;
     //et ainsi de suite, selon les besoins
 
 
@@ -32,8 +37,19 @@ public abstract class Rune {
     protected String couleur; //Seal, Glyph, Mark, Quint
     protected int stat; //AD, AP, ARMOR...
     protected int typeBonus; //FLAT, PERC, SCAL
-    protected int value; //valeur de ce bonus
-    protected File icone;
+    protected float value; //valeur de ce bonus
+    protected File icon;
+
+
+    public void addIcon(File icone){
+        this.icon = icone;
+    }
+    public void setIcon(File icone){ //deux syntaxes, au cas où
+        this.icon = icone;
+    }
+    public File getIcon(){
+        return this.icon;
+    }
 
 
     public String getCouleur() {
@@ -60,11 +76,11 @@ public abstract class Rune {
         this.typeBonus = typeBonus;
     }
 
-    public int getValue() {
+    public float getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(float value) {
         this.value = value;
     }
 

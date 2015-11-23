@@ -7,6 +7,7 @@ import lolsimulation.models.runes.Glyph;
 import lolsimulation.models.runes.Mark;
 import lolsimulation.models.runes.RunePage;
 
+
 public class Main {
 
     public static void main(String[] args){
@@ -25,6 +26,7 @@ public class Main {
         for(int j=0;j<9;j++){
             pageRunes.addRune(b); //on ajoute 9 marques pour voir
         }
+
 
         System.out.println(pageRunes.toString());
 

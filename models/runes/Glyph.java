@@ -8,7 +8,7 @@ public class Glyph extends Rune {
         this.couleur = "Glyph";
 
     }
-    public Glyph(int stat, int bonusType, int value) {
+    public Glyph(int stat, int bonusType, float value) {
         this.couleur = "Glyph";
         this.stat = stat;
         this.typeBonus = bonusType;

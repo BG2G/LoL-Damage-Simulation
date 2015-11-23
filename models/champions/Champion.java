@@ -207,7 +207,7 @@ public abstract class Champion extends Being {
         Rune rune;
         int stat; //AD, AP, ARMOR...
         int typeBonus; //FLAT, PERC, SCAL
-        int value; //valeur de ce bonus
+        float value; //valeur de ce bonus
         while(listeRunes.hasNext()) {
             rune = listeRunes.next();
             stat = rune.getStat();

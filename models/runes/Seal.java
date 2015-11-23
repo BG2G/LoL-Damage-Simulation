@@ -10,7 +10,7 @@ public class Seal extends Rune {
         this.couleur = "Seal";
 
     }
-    public Seal(int stat, int bonusType, int value) {
+    public Seal(int stat, int bonusType, float value) {
         this.couleur = "Seal";
         this.stat = stat;
         this.typeBonus = bonusType;
