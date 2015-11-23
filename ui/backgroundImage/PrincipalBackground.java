@@ -3,6 +3,7 @@ package lolsimulation.ui.backgroundImage;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -28,8 +29,9 @@ public class PrincipalBackground extends JPanel{
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(this.img, 0, 0, null);
+        g.drawImage(this.img, 0, 0,this.getWidth(),this.getHeight(), null);
     }
+
 
     public BufferedImage getImg() {
         return img;
