@@ -139,19 +139,11 @@ public class RunePage {
 
 
 
-	public static final int G_MANA_REG = 109;
-	public static final int G_SCAL_MANA = 110;
-	public static final int G_MAGIC_PEN = 111;
-	public static final int G_SCAL_MR = 112;
-	public static final int G_MR = 113;
-	public static final int G_MANA = 114;
-	public static final int G_SCAL_HP = 115;
-	public static final int G_HP_REG = 116;
-	public static final int G_ARMOR = 117;
-	public static final int G_CDR = 118;
-	public static final int G_AP = 119;
-	public static final int G_SCAL_AP = 120;
-	public static final int G_SCAL_CDR = 121;
+
+
+
+
+
 	*/
 	public Glyph createGlyph(int ref){
 		Glyph g = new Glyph();
@@ -202,12 +194,83 @@ public class RunePage {
 				g.setTypeBonus(Rune.SCAL);
 				g.setValue(0.06f);
 				break;
+			case 109: //public static final int G_MANA_REG = 109;
+				g.setStat(Rune.MANA_REG);
+				g.setTypeBonus(Rune.FLAT);
+				g.setValue(0.33f);
+				break;
+			case 110: //public static final int G_SCAL_MANA = 110;
+				g.setStat(Rune.MANA);
+				g.setTypeBonus(Rune.SCAL);
+				g.setValue(1.42f);
+				break;
+			case 111: //public static final int G_MAGIC_PEN = 111;
+				g.setStat(Rune.MAG_PEN);
+				g.setTypeBonus(Rune.FLAT);
+				g.setValue(0.63f);
+				break;
+			case 112: //public static final int G_SCAL_MR = 112;
+				g.setStat(Rune.MR);
+				g.setTypeBonus(Rune.SCAL);
+				g.setValue(0.16f);
+				break;
+			case 113: //public static final int G_MR = 113;
+				g.setStat(Rune.MR);
+				g.setTypeBonus(Rune.FLAT);
+				g.setValue(1.34f);
+				break;
+			case 114: //public static final int G_MANA = 114;
+				g.setStat(Rune.MANA);
+				g.setTypeBonus(Rune.FLAT);
+				g.setValue(11.25f);
+				break;
+			case 115: //public static final int G_SCAL_HP = 115;
+				g.setStat(Rune.HP);
+				g.setTypeBonus(Rune.SCAL);
+				g.setValue(0.54f);
+				break;
+			case 116: //public static final int G_HP_REG = 116;
+				g.setStat(Rune.HP);
+				g.setTypeBonus(Rune.FLAT);
+				g.setValue(11.25f);
+				break;
+			case 117: //public static final int G_ARMOR = 117;
+				g.setStat(Rune.ARMOR);
+				g.setTypeBonus(Rune.FLAT);
+				g.setValue(0.7f);
+				break;
+			case 118: //public static final int G_CDR = 118;
+				g.setStat(Rune.CDR);
+				g.setTypeBonus(Rune.FLAT);
+				g.setValue(0.83f);
+				break;
+			case 119: //public static final int G_AP = 119;
+				g.setStat(Rune.AP);
+				g.setTypeBonus(Rune.FLAT);
+				g.setValue(1.19f);
+				break;
+			case 120: //public static final int G_SCAL_AP = 120;
+				g.setStat(Rune.AP);
+				g.setTypeBonus(Rune.SCAL);
+				g.setValue(0.17f);
+				break;
+			case 121: //public static final int G_SCAL_CDR = 121;
+				g.setStat(Rune.CDR);
+				g.setTypeBonus(Rune.SCAL);
+				g.setValue(0.09f);
+				break;
+
 		}
-
-
 		return g;
 
 	}
+
+
+
+
+
+
+
 	public static int getMaxMark() {
 		return MAX_MARK;
 	}

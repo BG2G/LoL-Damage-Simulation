@@ -24,6 +24,7 @@ public abstract class Rune {
     public static final int MANA = 15;
     public static final int MANA_REG = 16;
     public static final int AS = 17;
+    public static final int HP_REG = 18;
     //et ainsi de suite, selon les besoins
 
 
